@@ -789,19 +789,19 @@
       }
     },
     isCampaign: function() {
-      return false
+      return getGlobalNamespace().IS_CLOUDFLARE_GAME;
     },
     isMySite: function() {
-      return false
+      return !! getGlobalNamespace().KICKASS_SITE_KEY;
     },
     shouldShowAd: function() {
-      return false
+      return ! this.mySite && !this.isCampaign();
     },
     shouldShowMenu: function() {
-      return false
+      return ! this.mySite && !this.isCampaign();
     },
     shouldShowHowToImage: function() {
-      return false
+      return this.mySite || this.isCampaign();
     }
   });
   window.KickAss = KickAss;
